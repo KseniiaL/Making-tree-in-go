@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
+	"./tree"
 	)
 
 func main() {
-	fmt.Println("Start")
-	t1 := New(10, 3)
-	PrintTree(t1)
-	fmt.Println("end")
+	fmt.Println("Printing the tree:")
+	t1 := tree.New(10, 3)
+	tree.PrintTree(t1)
 }
