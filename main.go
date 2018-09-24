@@ -1,3 +1,4 @@
+//package main uses methods from tree and printing the result values
 package main
 
 import (
