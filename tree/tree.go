@@ -1,3 +1,5 @@
+//package tree has methods for initialization of random binary tree with specified length,
+// walking the tree and displaying it with the help of the channel
 package tree
 
 import (
