@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"./tree"
-	)
+	"github.com/KseniiaL/Making-tree-in-go/tree"
+)
 
 func main() {
 	fmt.Println("Printing the tree:")
