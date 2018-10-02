@@ -17,19 +17,19 @@ type Tree struct {
 func Walk(t *Tree) <-chan int {
 	ch := make(chan int)
 	go func() {
-		WalkTree(t, ch)
+		walkTree(t, ch)
 		close(ch)
 	}()
 	return ch
 }
 
-func WalkTree(t *Tree, ch chan int) {
+func walkTree(t *Tree, ch chan int) {
 	if t.Left != nil {
-		WalkTree(t.Left, ch)
+		walkTree(t.Left, ch)
 	}
 	ch <- t.Value
 	if t.Right != nil {
-		WalkTree(t.Right, ch)
+		walkTree(t.Right, ch)
 	}
 }
 
@@ -38,20 +38,20 @@ func WalkTree(t *Tree, ch chan int) {
 func New(n, k int) *Tree {
 	var t *Tree
 	for _, v := range rand.Perm(n) {
-		t = insert(t, (1+v)*k)
+		t = Insert(t, (1+v)*k)
 	}
 	return t
 }
 
-func insert(t *Tree, v int) *Tree {
+func Insert(t *Tree, v int) *Tree {
 	if t == nil {
 		return &Tree{nil, v, nil}
 	}
 	if v < t.Value {
-		t.Left = insert(t.Left, v)
+		t.Left = Insert(t.Left, v)
 		return t
 	}
-	t.Right = insert(t.Right, v)
+	t.Right = Insert(t.Right, v)
 	return t
 }
 
